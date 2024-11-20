@@ -47,14 +47,10 @@
         <item name="colorSurfaceContainer">@color/md_theme_surfaceContainer_mediumContrast</item>
         <item name="colorSurfaceContainerHigh">@color/md_theme_surfaceContainerHigh_mediumContrast</item>
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest_mediumContrast</item>
-        <item name="colorCustomPrimary1">@color/colorCustomPrimary1_mediumContrast</item>
-        <item name="colorOnCustomPrimary1">@color/colorOnCustomPrimary1_mediumContrast</item>
-        <item name="colorCustomPrimary1Container">@color/colorCustomPrimary1Container_mediumContrast</item>
-        <item name="colorOnCustomPrimary1Container">@color/colorOnCustomPrimary1Container_mediumContrast</item>
-        <item name="colorCustomPrimary2">@color/colorCustomPrimary2_mediumContrast</item>
-        <item name="colorOnCustomPrimary2">@color/colorOnCustomPrimary2_mediumContrast</item>
-        <item name="colorCustomPrimary2Container">@color/colorCustomPrimary2Container_mediumContrast</item>
-        <item name="colorOnCustomPrimary2Container">@color/colorOnCustomPrimary2Container_mediumContrast</item>
+        <item name="colorUFCColor">@color/colorUFCColor_mediumContrast</item>
+        <item name="colorOnUFCColor">@color/colorOnUFCColor_mediumContrast</item>
+        <item name="colorUFCColorContainer">@color/colorUFCColorContainer_mediumContrast</item>
+        <item name="colorOnUFCColorContainer">@color/colorOnUFCColorContainer_mediumContrast</item>
     </style>
 
     <style name="ThemeOverlay.AppTheme.HighContrast" parent="Theme.Material3.Dark.NoActionBar">
@@ -104,13 +100,10 @@
         <item name="colorSurfaceContainer">@color/md_theme_surfaceContainer_highContrast</item>
         <item name="colorSurfaceContainerHigh">@color/md_theme_surfaceContainerHigh_highContrast</item>
         <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest_highContrast</item>
-        <item name="colorCustomPrimary1">@color/colorCustomPrimary1_highContrast</item>
-        <item name="colorOnCustomPrimary1">@color/colorOnCustomPrimary1_highContrast</item>
-        <item name="colorCustomPrimary1Container">@color/colorCustomPrimary1Container_highContrast</item>
-        <item name="colorOnCustomPrimary1Container">@color/colorOnCustomPrimary1Container_highContrast</item>
-        <item name="colorCustomPrimary2">@color/colorCustomPrimary2_highContrast</item>
-        <item name="colorOnCustomPrimary2">@color/colorOnCustomPrimary2_highContrast</item>
-        <item name="colorCustomPrimary2Container">@color/colorCustomPrimary2Container_highContrast</item>
-        <item name="colorOnCustomPrimary2Container">@color/colorOnCustomPrimary2Container_highContrast</item>
+        <item name="colorUFCColor">@color/colorUFCColor_highContrast</item>
+        <item name="colorOnUFCColor">@color/colorOnUFCColor_highContrast</item>
+        <item name="colorUFCColorContainer">@color/colorUFCColorContainer_highContrast</item>
+        <item name="colorOnUFCColorContainer">@color/colorOnUFCColorContainer_highContrast</item>
     </style>
+
 </resources>

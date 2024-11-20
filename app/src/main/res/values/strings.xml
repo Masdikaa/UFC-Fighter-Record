@@ -1,3 +1,209 @@
 <resources>
     <string name="app_name">UFC Fighter Record</string>
+
+    <string name="menu_list">List</string>
+    <string name="menu_grid">Grid</string>
+    <string name="menuA_about">Grid</string>
+    <string name="fighter_about">Fighter About</string>
+    <string name="fighter_division">Fighter Division</string>
+    <string name="fighter_name">Fighter Name</string>
+
+    <string-array name="fighter_name">
+        <item>Islam Makhachev</item>
+        <item>Jon Jones</item>
+        <item>Alex Pereira</item>
+        <item>Ilia Topuria</item>
+        <item>Belal Muhammad</item>
+        <item>Dricus Du Plessis</item>
+        <item>Merab Dvalishvili</item>
+        <item>Tom Aspinall</item>
+        <item>Leon Edwards</item>
+        <item>Alexander Volkanovski</item>
+        <item>Alexandre Pantoja</item>
+        <item>Max Holloway</item>
+        <item>Sean O\'Malley</item>
+        <item>Sean Strickland</item>
+        <item>Charles Oliveira</item>
+    </string-array>
+
+    <string-array name="fighter_division">
+        <item>Lightweight Division</item>
+        <item>Heavyweight Division</item>
+        <item>Light Heavyweight Division</item>
+        <item>Featherweight Division</item>
+        <item>Welterweight Division</item>
+        <item>Middleweight Division</item>
+        <item>Bantamweight Division</item>
+        <item>Heavyweight Division</item>
+        <item>Welterweight Division</item>
+        <item>Featherweight Division</item>
+        <item>Flyweight Division</item>
+        <item>Featherweight Division</item>
+        <item>Bantamweight Division</item>
+        <item>Middleweight Division</item>
+        <item>Lightweight Division</item>
+    </string-array>
+
+    <string-array name="fighter_win">
+        <item>26</item>
+        <item>28</item>
+        <item>12</item>
+        <item>16</item>
+        <item>24</item>
+        <item>22</item>
+        <item>18</item>
+        <item>15</item>
+        <item>22</item>
+        <item>26</item>
+        <item>28</item>
+        <item>26</item>
+        <item>18</item>
+        <item>29</item>
+        <item>35</item>
+    </string-array>
+
+    <string-array name="fighter_loss">
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+        <item>3</item>
+        <item>2</item>
+        <item>4</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+        <item>5</item>
+        <item>8</item>
+        <item>2</item>
+        <item>6</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="fighter_draw">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="fighter_image">
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/MAKHACHEV_ISLAM_L_BELT_06-01.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-11/JONES_JON_L_BELT_11-16.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/3/PEREIRA_ALEX_L_BELT_10-05.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/TOPURIA_ILIA_L_BELT_10-26.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/MUHAMMAD_BELAL_L_BELTMOCK.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/DU_PLESSIS_DRICUS_L_BELT.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/DVALISHVILI_MERAB_L_BELTMOCK.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/ASPINALL_TOM_BELT_L_07-27.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/EDWARDS_LEON_L_08-20.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/VOLKANOVSKI_ALEXANDER_L_02-17.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/PANTOJA_ALEXANDRE_L_BELT_05-04.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-04/HOLLOWAY_MAX_L_04-13.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/OMALLEY_SEAN_L_08-19.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-10/2/STRICKLAND_SEAN_L_06-01.png</item>
+        <item>https://dmxg5wxfqgb4u.cloudfront.net/styles/athlete_bio_full_body/s3/2024-11/OLIVEIRA_CHARLES_L_11-16.png</item>
+    </string-array>
+
+    <string-array name="fighter_about">
+        <item>Islam Makhachev adalah petarung asal Dagestan yang dikenal dengan gaya gulatnya yang sangat kuat. Dia adalah murid dari Khabib Nurmaghamodev dan saat ini merupakan juara kelas ringan UFC.</item>
+        <item>Jon Jones adalah mantan juara kelas berat ringan UFC yang dianggap sebagai salah satu petarung terbaik sepanjang masa. Dia dikenal dengan jangkauannya yang luar biasa dan kemampuan striking yang mematikan.</item>
+        <item>Alex Pereira adalah juara kelas menengah UFC yang sebelumnya sukses di kickboxing. Dia dikenal dengan kekuatan pukulannya yang luar biasa dan kemampuan KO-nya.</item>
+        <item>Ilia Topuria adalah petarung yang sedang naik daun dengan gaya bertarung yang agresif. Dia memiliki kemampuan striking dan grappling yang seimbang.</item>
+        <item>Belal Muhammad adalah petarung kelas welter yang dikenal dengan kemampuan gulatnya yang kuat dan teknik striking yang terus berkembang.</item>
+        <item>Dricus Du Plessis adalah petarung asal Afrika Selatan yang dikenal dengan gaya bertarungnya yang agresif dan kemampuan striking yang kuat.</item>
+        <item>Merab Dvalishvili adalah rekan satu gym dengan Aljamain Sterling dan dikenal dengan gaya gulatnya yang sangat kuat serta kemampuan striking yang terus berkembang.</item>
+        <item>Tom Aspinall adalah petarung kelas berat yang memiliki kemampuan grappling yang sangat baik dan striking yang kuat. Dia dianggap sebagai salah satu prospek paling menjanjikan di divisi kelas berat.</item>
+        <item>Leon Edwards adalah juara kelas welter UFC yang dikenal dengan kemampuan striking yang sangat baik dan kemampuan KO-nya. Dia terkenal dengan tendangan kepalanya yang menjatuhkan Kamaru Usman.</item>
+        <item>Alexander Volkanovski adalah juara kelas bulu UFC yang dikenal dengan kemampuan striking yang sangat baik dan teknik gulatnya yang solid. Dia dianggap sebagai salah satu petarung pound-for-pound terbaik di dunia.</item>
+        <item>Alexandre Pantoja adalah juara kelas terbang UFC yang dikenal dengan kemampuan gulatnya yang sangat kuat dan kemampuan ground and pound-nya.</item>
+        <item>Max Holloway adalah mantan juara kelas bulu UFC yang dikenal dengan kemampuan striking yang sangat cepat dan volume pukulan yang tinggi.</item>
+        <item>Sean O\'Malley adalah petarung yang sedang naik daun dengan gaya striking yang sangat menarik. Dia dikenal dengan tendangan tinggi dan kemampuan KO-nya.</item>
+        <item>Sean Strickland adalah petarung yang dikenal dengan gaya bertarungnya yang agresif dan kemampuan striking yang kuat. Dia sering kali terlibat dalam pertarungan yang sangat menghibur.</item>
+        <item>Charles Oliveira adalah mantan juara kelas ringan UFC yang dikenal dengan kemampuan submission yang sangat baik dan striking yang beragam. Dia memiliki rekor submission terbanyak dalam sejarah UFC.</item>
+    </string-array>
+
+    <string-array name="fighter_striking">
+        <item>60</item>
+        <item>59</item>
+        <item>63</item>
+        <item>47</item>
+        <item>44</item>
+        <item>49</item>
+        <item>42</item>
+        <item>67</item>
+        <item>54</item>
+        <item>57</item>
+        <item>50</item>
+        <item>48</item>
+        <item>61</item>
+        <item>42</item>
+        <item>55</item>
+    </string-array>
+
+    <string-array name="fighter_take_down">
+        <item>54</item>
+        <item>46</item>
+        <item>100</item>
+        <item>61</item>
+        <item>39</item>
+        <item>50</item>
+        <item>37</item>
+        <item>100</item>
+        <item>37</item>
+        <item>38</item>
+        <item>48</item>
+        <item>53</item>
+        <item>43</item>
+        <item>64</item>
+        <item>40</item>
+    </string-array>
+
+    <string-array name="knock_out_win">
+        <item>5</item>
+        <item>11</item>
+        <item>10</item>
+        <item>6</item>
+        <item>5</item>
+        <item>9</item>
+        <item>3</item>
+        <item>12</item>
+        <item>7</item>
+        <item>13</item>
+        <item>8</item>
+        <item>12</item>
+        <item>12</item>
+        <item>11</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="submission_win">
+        <item>12</item>
+        <item>7</item>
+        <item>0</item>
+        <item>8</item>
+        <item>1</item>
+        <item>11</item>
+        <item>1</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>10</item>
+        <item>2</item>
+        <item>9</item>
+        <item>4</item>
+        <item>21</item>
+    </string-array>
+
 </resources>
