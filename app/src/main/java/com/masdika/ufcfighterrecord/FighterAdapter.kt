@@ -8,8 +8,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class FighterAdapter(private val listFighter: ArrayList<Fighter>) : RecyclerView.Adapter<FighterAdapter.FighterViewHolder>() {
+class FighterAdapter(
+    private val listFighter: ArrayList<Fighter>,
+    private var isGridLayout: Boolean
+) : RecyclerView.Adapter<FighterAdapter.FighterViewHolder>() {
+
     private lateinit var onItemClickCallback: OnItemClickCallback
+
+    companion object {
+        private const val VIEW_TYPE_LINEAR = 0
+        private const val VIEW_TYPE_GRID = 1
+    }
 
     class FighterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val fighterImage: ImageView = itemView.findViewById(R.id.fighter_image)
@@ -18,8 +27,17 @@ class FighterAdapter(private val listFighter: ArrayList<Fighter>) : RecyclerView
         val fighterAbout: TextView = itemView.findViewById(R.id.fighter_about_textview)
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return if (isGridLayout) VIEW_TYPE_GRID else VIEW_TYPE_LINEAR
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FighterViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_fighter, parent, false)
+        val layoutId = if (viewType == VIEW_TYPE_GRID) {
+            R.layout.item_fighter_grid
+        } else {
+            R.layout.item_fighter_linear
+        }
+        val view: View = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
         return FighterViewHolder(view)
     }
 
@@ -34,7 +52,16 @@ class FighterAdapter(private val listFighter: ArrayList<Fighter>) : RecyclerView
         holder.fighterDivision.text = division
         holder.fighterAbout.text = about
 
+//        if (!isGridLayout) {
+//            holder.fighterAbout?.text = about
+//        }
+
         holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listFighter[holder.adapterPosition]) }
+    }
+
+    fun setLayoutMode(isGrid: Boolean) {
+        isGridLayout = isGrid
+        notifyDataSetChanged()
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {

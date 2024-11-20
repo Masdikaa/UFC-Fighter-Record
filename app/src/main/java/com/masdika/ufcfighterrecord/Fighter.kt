@@ -15,5 +15,6 @@ data class Fighter(
     val strikePercentage: Int,
     val takeDownPercentage: Int,
     val winByKnockOut: Int,
-    val winBySubmission: Int
+    val winBySubmission: Int,
+    val fighterTitle: String
 ) : Parcelable
