@@ -2,15 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_list"
-        android:title="@string/menu_list"
+        android:id="@+id/about"
+        android:title="@string/about_menu"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_grid"
-        android:title="@string/menu_grid"
+        android:id="@+id/code"
+        android:title="@string/source_code_menu"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_about"
-        android:title="@string/menuA_about"
-        app:showAsAction="never" />
+
 </menu>

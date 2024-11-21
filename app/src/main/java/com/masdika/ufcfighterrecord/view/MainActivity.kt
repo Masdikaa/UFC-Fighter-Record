@@ -2,9 +2,12 @@ package com.masdika.ufcfighterrecord.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -96,6 +99,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.changeLayoutButton.setOnClickListener(this)
         binding.gridLayoutButton.setOnClickListener(this)
         binding.listLayoutButton.setOnClickListener(this)
+        binding.profileButton.setOnClickListener(this)
 
     }
 
@@ -159,6 +163,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         return listFighter
     }
 
+    private fun showPopUpMenu() {
+        val popupMenu = PopupMenu(this, binding.profileButton)
+        popupMenu.menuInflater.inflate(R.menu.menu_main, popupMenu.menu)
+
+        popupMenu.setOnMenuItemClickListener { menuItem: MenuItem ->
+            when (menuItem.itemId) {
+
+                R.id.about -> {
+                    startActivity(Intent(this@MainActivity, AboutActivity::class.java))
+                    true
+                }
+
+                R.id.code -> {
+                    Toast.makeText(this@MainActivity, "Code", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+        popupMenu.show()
+    }
+
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.change_layout_button -> {
@@ -175,6 +203,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 binding.recyclerViewLayout.layoutManager = LinearLayoutManager(this)
                 fighterAdapter.setLayoutMode(false)
                 onAddOnButtonClicked()
+            }
+
+            R.id.profile_button -> {
+                showPopUpMenu()
             }
         }
     }

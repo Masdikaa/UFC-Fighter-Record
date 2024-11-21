@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">UFC Fighter Record</string>
 
-    <string name="menu_list">List</string>
-    <string name="menu_grid">Grid</string>
-    <string name="menuA_about">Grid</string>
     <string name="fighter_about">Fighter About</string>
     <string name="fighter_division">Fighter Division</string>
     <string name="fighter_name">Fighter Name</string>
@@ -14,6 +11,25 @@
     <string name="about_fighter">About Fighter</string>
     <string name="stats">Stats</string>
     <string name="striking_accuracy">Striking Accuracy</string>
+    <string name="about_menu">About</string>
+    <string name="source_code_menu">Source Code</string>
+    <string name="takedown_accuracy">Takedown Accuracy</string>
+    <string name="my_avatar">https://avatars.githubusercontent.com/u/93296892?v=4</string>
+    <string name="my_name">Masdika Ilhan Mansiz</string>
+    <string name="about_me">About Me</string>
+    <string name="email">Email</string>
+    <string name="instagram">Instagram</string>
+    <string name="linkedin">Linkedin</string>
+    <string name="github">Github</string>
+
+    <string name="about_me_text">Fresh Graduate Diploma III Teknologi Informasi dari Politeknik Negeri Madiun tahun 2024, dengan pengalaman magang di bidang Teknologi Informasi. Menguasai bahasa pemrograman seperti PHP, Java, Kotlin, Python, dan JavaScript. Tertarik dan terampil dalam bidang Mobile Development, Machine Learning, dan Internet of Things. Berpengalaman dalam menggunakan berbagai Sistem Operasi, pemecahan masalah, perencanaan, dan mampu bekerja baik dalam tim maupun mandiri.</string>
+    <string name="email_text">masdikailhanmansiz@gmail.com</string>
+    <string name="instagram_text">masdikailhannn</string>
+    <string name="instagram_link">https://www.instagram.com/masdikailhannn/</string>
+    <string name="linkedin_text">Masdika Ilhan Mansiz</string>
+    <string name="linkedin_link">https://www.linkedin.com/in/masdikailhanmansiz</string>
+    <string name="github_text">Masdikaa | masdikailhanmansiz@gmail.com</string>
+    <string name="github_link">https://github.com/Masdikaa</string>
 
     <string-array name="fighter_name">
         <item>Masdika Ilhan Mansiz</item>

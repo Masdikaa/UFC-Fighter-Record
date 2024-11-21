@@ -59,6 +59,7 @@
         android:layout_marginStart="5dp"
         android:ellipsize="end"
         android:fontFamily="@font/maven_pro"
+        android:maxLines="8"
         android:text="@string/fighter_about"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
