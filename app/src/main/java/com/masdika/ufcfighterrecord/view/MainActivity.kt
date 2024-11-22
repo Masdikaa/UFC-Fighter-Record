@@ -1,14 +1,17 @@
 package com.masdika.ufcfighterrecord.view
 
 import android.content.Intent
+import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -17,12 +20,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.masdika.ufcfighterrecord.Fighter
 import com.masdika.ufcfighterrecord.FighterAdapter
+import com.masdika.ufcfighterrecord.OrientationViewModel
 import com.masdika.ufcfighterrecord.R
 import com.masdika.ufcfighterrecord.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
+
     private val fighterList = ArrayList<Fighter>()
     private lateinit var fighterAdapter: FighterAdapter
 
@@ -30,18 +35,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private val toBottom: Animation by lazy { AnimationUtils.loadAnimation(this, R.anim.to_bottom_anim) }
 
     private var isClicked = false
+    private val orientationViewModel: OrientationViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        windowPadding()
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        orientationViewModel.orientation.observe(this, { orientation ->
+            Log.d("OrientationObserve", "Current orientation: $orientation")
+        })
 
         fighterAdapter = FighterAdapter(fighterList, isGridLayout = false)
         fighterAdapter.setOnItemClickCallback(object : FighterAdapter.OnItemClickCallback {
@@ -101,6 +106,77 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.listLayoutButton.setOnClickListener(this)
         binding.profileButton.setOnClickListener(this)
 
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        orientationViewModel.updateOrientation(newConfig.orientation)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        windowPadding()
+
+        setupRecyclerView()
+        setupClickListeners()
+    }
+
+    private fun setupClickListeners() {
+        binding.changeLayoutButton.setOnClickListener(this)
+        binding.gridLayoutButton.setOnClickListener(this)
+        binding.listLayoutButton.setOnClickListener(this)
+        binding.profileButton.setOnClickListener(this)
+
+        binding.recyclerViewLayout.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                when (isClicked) {
+                    false -> {
+                        if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                            binding.changeLayoutButton.visibility = View.VISIBLE
+                            binding.changeLayoutButton.startAnimation(AnimationUtils.loadAnimation(this@MainActivity, R.anim.fade_in))
+                        } else {
+                            binding.changeLayoutButton.visibility = View.GONE
+                            binding.changeLayoutButton.startAnimation(AnimationUtils.loadAnimation(this@MainActivity, R.anim.fade_out))
+                        }
+                    }
+
+                    true -> {
+                        if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                            binding.gridLayoutButton.visibility = View.VISIBLE
+                            binding.listLayoutButton.visibility = View.VISIBLE
+                            binding.changeLayoutButton.visibility = View.VISIBLE
+                            binding.gridLayoutButton.startAnimation(AnimationUtils.loadAnimation(this@MainActivity, R.anim.from_bottom_anim))
+                            binding.listLayoutButton.startAnimation(AnimationUtils.loadAnimation(this@MainActivity, R.anim.from_bottom_anim))
+                            binding.changeLayoutButton.startAnimation(AnimationUtils.loadAnimation(this@MainActivity, R.anim.fade_in))
+                        } else {
+                            binding.gridLayoutButton.visibility = View.GONE
+                            binding.listLayoutButton.visibility = View.GONE
+                            binding.changeLayoutButton.visibility = View.GONE
+                            binding.gridLayoutButton.startAnimation(AnimationUtils.loadAnimation(this@MainActivity, R.anim.to_bottom_anim))
+                            binding.listLayoutButton.startAnimation(AnimationUtils.loadAnimation(this@MainActivity, R.anim.to_bottom_anim))
+                            binding.changeLayoutButton.startAnimation(AnimationUtils.loadAnimation(this@MainActivity, R.anim.fade_out))
+                        }
+                    }
+                }
+            }
+        })
+    }
+
+    private fun setupRecyclerView() {
+        fighterAdapter = FighterAdapter(fighterList, isGridLayout = false)
+        fighterAdapter.setOnItemClickCallback(object : FighterAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Fighter) {
+                val intentToDetail = Intent(this@MainActivity, DetailActivity::class.java)
+                intentToDetail.putExtra("DATA", data)
+                startActivity(intentToDetail)
+            }
+        })
+
+        binding.recyclerViewLayout.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            setHasFixedSize(true)
+            adapter = fighterAdapter
+        }
     }
 
     private fun onAddOnButtonClicked() {
@@ -176,7 +252,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
 
                 R.id.code -> {
-                    Toast.makeText(this@MainActivity, "Code", Toast.LENGTH_SHORT).show()
+                    val url = "https://github.com/Masdikaa/UFC-Fighter-Record"
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(url)
+                    startActivity(intent)
                     true
                 }
 
@@ -185,6 +264,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         popupMenu.show()
+    }
+
+    private fun windowPadding() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
     }
 
     override fun onClick(v: View?) {

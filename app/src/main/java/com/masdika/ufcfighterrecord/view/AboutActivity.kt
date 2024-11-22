@@ -1,14 +1,19 @@
 package com.masdika.ufcfighterrecord.view
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
+import com.masdika.ufcfighterrecord.OrientationViewModel
 import com.masdika.ufcfighterrecord.R
 import com.masdika.ufcfighterrecord.databinding.ActivityAboutBinding
 
@@ -16,17 +21,18 @@ class AboutActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityAboutBinding
 
+    private val orientationViewModel: OrientationViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        windowPadding()
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        orientationViewModel.orientation.observe(this, { orientation ->
+            Log.d("OrientationObserve", "Current orientation: $orientation")
+        })
 
         initializeUI()
         binding.instagramLayout.setOnClickListener(this)
@@ -68,4 +74,24 @@ class AboutActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        orientationViewModel.updateOrientation(newConfig.orientation)
+
+        binding = ActivityAboutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        windowPadding()
+        initializeUI()
+
+    }
+
+    private fun windowPadding() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
+
 }
