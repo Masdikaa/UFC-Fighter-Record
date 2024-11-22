@@ -1,6 +1,7 @@
 [versions]
 agp = "8.7.1"
 cardviewV7 = "28.0.0"
+coreSplashscreen = "1.0.1"
 kotlin = "1.9.24"
 glide = "4.16.0"
 coreKtx = "1.15.0"
@@ -11,9 +12,11 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.2.0"
+mpandroidchart = "v3.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 cardview-v7 = { module = "com.android.support:cardview-v7", version.ref = "cardviewV7" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
@@ -23,6 +26,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+mpandroidchart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "mpandroidchart" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
