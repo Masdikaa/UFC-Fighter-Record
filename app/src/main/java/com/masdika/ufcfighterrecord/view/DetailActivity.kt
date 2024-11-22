@@ -1,17 +1,18 @@
 package com.masdika.ufcfighterrecord.view
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -44,6 +45,17 @@ class DetailActivity : AppCompatActivity() {
 
         data?.let {
             bindData(it)
+        }
+
+        binding.shareButton.setOnClickListener {
+            data?.let {
+                val intentShare = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, it.about)
+                }
+                val chooser = Intent.createChooser(intentShare, "Share to...")
+                startActivity(chooser)
+            } ?: Toast.makeText(this, "No data to share", Toast.LENGTH_SHORT).show()
         }
 
     }

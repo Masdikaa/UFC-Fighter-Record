@@ -309,6 +309,23 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/share_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/bebas"
+                android:text="Share Profile"
+                android:textColor="?attr/colorOnTertiaryContainer"
+                android:textSize="16sp"
+                app:backgroundTint="?attr/colorTertiaryContainer"
+                app:backgroundTintMode="add"
+                app:cornerRadius="8dp"
+                app:icon="@drawable/share_icon"
+                app:iconGravity="textEnd"
+                app:iconTint="?attr/colorOnTertiaryContainer" />
+
         </LinearLayout>
 
 
